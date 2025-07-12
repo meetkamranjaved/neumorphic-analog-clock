@@ -38,8 +38,4 @@ A modern and elegant **neumorphic-style analog clock** built with vanilla **Java
 
 ---
 
-
-
----
-
 > Developed with ❤️ by [Kamran Javed](https://kamranjaved.com)
