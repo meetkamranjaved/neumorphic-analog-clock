@@ -1,0 +1,122 @@
+/*
+Project: Neumorphic Analog Clock
+Author: Kamran Javed
+Portfolio: https://kamranjaved.com
+Company: OneDigitalLine
+Website: https://onedigitalline.com
+Email: meet@kamranjaved.com
+License: For personal or client use only. Redistribution prohibited.
+© Kamran Javed. All rights reserved.
+*/
+
+:root {
+  --bg-color: #1f1f1f;
+  --clock-bg: #2a2a2a;
+  --primary-border: #111;
+  --hour-hand: #f5b400;
+  --minute-hand: #cccccc;
+  --second-hand: #e74c3c;
+  --center-dot: #888;
+  --shadow-light: rgba(255, 255, 255, 0.05);
+  --shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg-color);
+  font-family: sans-serif;
+}
+
+.clock {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: var(--clock-bg)
+    url("https://images.unsplash.com/photo-1508704019882-f8e08e5b5f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80")
+    center/cover;
+  border: 4px solid var(--primary-border);
+  border-radius: 50%;
+  box-shadow: -8px -8px 16px var(--shadow-light),
+    inset 8px 8px 16px var(--shadow-dark),
+    inset -8px -8px 16px var(--shadow-light), 8px 8px 16px var(--shadow-dark);
+  overflow: hidden;
+}
+
+.clock::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  background: var(--center-dot);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.hour,
+.minute,
+.second {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+}
+
+.hr,
+.mn,
+.sc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 6px;
+  transform-origin: bottom;
+}
+
+.hr {
+  width: 6px;
+  height: 70px;
+  background: var(--hour-hand);
+  z-index: 10;
+}
+
+.mn {
+  width: 4px;
+  height: 90px;
+  background: var(--minute-hand);
+  z-index: 11;
+}
+
+.sc {
+  width: 2px;
+  height: 120px;
+  background: var(--second-hand);
+  z-index: 12;
+}
+
+/* Optional: Responsive tweak */
+@media (max-width: 400px) {
+  .clock {
+    width: 240px;
+    height: 240px;
+  }
+  .hr {
+    height: 56px;
+  }
+  .mn {
+    height: 72px;
+  }
+  .sc {
+    height: 96px;
+  }
+}
